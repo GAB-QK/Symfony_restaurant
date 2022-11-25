@@ -1,0 +1,86 @@
+.navFont {
+  font-size: 30px;
+
+}
+
+.logo {
+  width: 120px;
+}
+
+.footerblack {
+  height: 450px;
+  font-family: 'Inter', sans-serif;
+  font-weight: Thin;
+  background-color: black;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+  color: aliceblue;
+  font-size: 60px;
+  padding-left: 10%;
+  padding-top: 2%;
+  text-align: left;
+}
+
+.footerwhite {
+  background-color: aliceblue;
+  padding-left: 5px;
+  color: black;
+  width: 15%;
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: large;
+}
+
+.footerbestecole {
+  font-family: 'Inter', sans-serif;
+  font-weight: Thin;
+  font-size: medium;
+  text-align: center;
+}
+
+.bestecole {
+  width: 300px;
+}
+
+.newsletter {
+  width: 750px;
+  height: 200px;
+  text-align: center;
+  background: rgb(253, 248, 248);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  margin-left: 1%;
+
+}
+
+.textsmall {
+  font-size: x-large;
+  font-family: 'Inter', sans-serif;
+}
+
+.textmedium {
+  font-size: large;
+  font-family: 'Inter', sans-serif;
+}
+
+.textlarge{
+  font-size: xx-large;
+  font-family: 'Inter', sans-serif;
+}
+
+.bouton:hover {
+  text-decoration: none
+}
+
+.bouton{
+  color: black;
+}
