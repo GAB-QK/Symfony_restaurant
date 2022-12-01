@@ -25,7 +25,7 @@ class EntreesController extends AbstractController
       $em = $doctrine->getManager();
       $em->persist($entrees);
       $em->flush();
-      return $this->redirectToRoute("entrees_readAll");
+      // return $this->redirectToRoute("entrees_readAll");
     }
 
 

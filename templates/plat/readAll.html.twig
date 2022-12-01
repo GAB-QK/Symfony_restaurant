@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	{% for plat in lists %}
+		<p>{{plat.name}}</p>
+			<p>{{plat.price}} €</p>
+	{% endfor %}
+
+{% endblock %}

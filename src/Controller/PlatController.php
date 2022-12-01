@@ -25,7 +25,7 @@ class PlatController extends AbstractController
       $em = $doctrine->getManager();
       $em->persist($plat);
       $em->flush();
-      return $this->redirectToRoute("plat_readAll");
+      //return $this->redirectToRoute("plat_readAll");
     }
 
 
