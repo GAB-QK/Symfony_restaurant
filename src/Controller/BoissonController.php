@@ -25,7 +25,7 @@ class BoissonController extends AbstractController
       $em = $doctrine->getManager();
       $em->persist($boisson);
       $em->flush();
-      return $this->redirectToRoute("boisson_readAll");
+      //return $this->redirectToRoute("boisson_readAll");
     }
 
 
@@ -54,7 +54,7 @@ class BoissonController extends AbstractController
     }
 
 
-    return $this->render('boisson/form.html.twig', [
+    return $this->render('boisson/boisson.html.twig', [
       'form' => $form->createView()
     ]);
   }
@@ -67,6 +67,8 @@ class BoissonController extends AbstractController
       'lists' => $boissonRepository->findAll()
     ]);
   }
+
+
   #[Route('/boisson/delete/{id}', name: 'boisson_delete')]
   public function delete(Boisson $boisson, ManagerRegistry $doctrine)
   {
