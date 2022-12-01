@@ -25,7 +25,7 @@ class DessertController extends AbstractController
       $em = $doctrine->getManager();
       $em->persist($dessert);
       $em->flush();
-      return $this->redirectToRoute("dessert_readAll");
+      //return $this->redirectToRoute("dessert_readAll");
     }
 
 

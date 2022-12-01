@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	{% for dessert in lists %}
+		<p>{{dessert.name}}</p>
+		<p>{{dessert.price}}
+			€</p>
+	{% endfor %}
+
+{% endblock %}
