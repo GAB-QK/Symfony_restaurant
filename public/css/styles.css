@@ -1,27 +1,26 @@
-.navFont {
-  font-size: 30px;
-
-}
-
 .logo {
   width: 120px;
 }
 
 .footerblack {
-  height: 450px;
+  height: 400px;
   font-family: 'Inter', sans-serif;
-  font-weight: Thin;
-  background-color: black;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 70px;
-  border-bottom-right-radius: 70px;
-  color: aliceblue;
+  font-weight: 100;
+  background-color: #000;
+  border-radius: 0 0 70px 70px;
+  color: #fff;
   font-size: 60px;
-  padding-left: 10%;
-  padding-top: 2%;
+  padding: 2% 10%;
   text-align: left;
 }
+
+@media only screen and (max-width: 700px) {
+  .footerblack {
+    font-size: 40px;
+    padding: 2% 5%;
+  }
+}
+
 
 .footerwhite {
   background-color: aliceblue;
@@ -37,6 +36,7 @@
   font-size: large;
 }
 
+
 .footerbestecole {
   font-family: 'Inter', sans-serif;
   font-weight: Thin;
@@ -44,11 +44,9 @@
   text-align: center;
 }
 
-.bestecole {
-  width: 300px;
-}
-
 .newsletter {
+  margin-top: 50px;
+  margin-left: 30%;
   width: 750px;
   height: 200px;
   text-align: center;
@@ -58,8 +56,14 @@
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-  margin-left: 1%;
+}
 
+@media (max-width: 768px) {
+  .newsletter {
+
+    margin-left: 10%;
+    width: 90%;
+  }
 }
 
 .textsmall {
@@ -72,7 +76,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-.textlarge{
+.textlarge {
   font-size: xx-large;
   font-family: 'Inter', sans-serif;
 }
@@ -81,6 +85,55 @@
   text-decoration: none
 }
 
-.bouton{
+.bouton {
   color: black;
+}
+
+.basic {
+  background-color: rgb(234, 139, 15);
+}
+
+.premium {
+  background-color: rgb(121, 111, 98);
+}
+
+.gold {
+  background-color: rgb(255, 215, 0);
+}
+
+.card {
+  border: 1px solid #ccc;
+  /* Add a border to the card */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow to the card */
+  width: 38rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-img-right {
+  width: 25%;
+  /* Set the width of the image to 25% of the card width */
+  border-radius: 0;
+  /* Remove the border radius from the image */
+}
+
+.card-title {
+  font-size: 1.5em;
+  /* Increase the font size of the title */
+  color: rgb(0, 0, 0);
+  /* Change the text color to dark grey */
+  text-align: center;
+  /* Center the text */
+}
+
+.card-text {
+  font-size: 1.2em;
+  /* Increase the font size of the text */
+  color: rgb(24, 24, 24);
+  /* Change the text color to medium grey */
+  line-height: 1.5;
+  /* Increase the line height to make the text more readable */
 }
