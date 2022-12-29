@@ -1,27 +1,26 @@
-.navFont {
-  font-size: 30px;
-
-}
-
 .logo {
   width: 120px;
 }
 
 .footerblack {
-  height: 450px;
+  height: 400px;
   font-family: 'Inter', sans-serif;
-  font-weight: Thin;
-  background-color: black;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 70px;
-  border-bottom-right-radius: 70px;
-  color: aliceblue;
+  font-weight: 100;
+  background-color: #000;
+  border-radius: 0 0 70px 70px;
+  color: #fff;
   font-size: 60px;
-  padding-left: 10%;
-  padding-top: 2%;
+  padding: 2% 10%;
   text-align: left;
 }
+
+@media only screen and (max-width: 700px) {
+  .footerblack {
+    font-size: 40px;
+    padding: 2% 5%;
+  }
+}
+
 
 .footerwhite {
   background-color: aliceblue;
@@ -37,6 +36,7 @@
   font-size: large;
 }
 
+
 .footerbestecole {
   font-family: 'Inter', sans-serif;
   font-weight: Thin;
@@ -44,11 +44,9 @@
   text-align: center;
 }
 
-.bestecole {
-  width: 300px;
-}
-
 .newsletter {
+  margin-top: 50px;
+  margin-left: 30%;
   width: 750px;
   height: 200px;
   text-align: center;
@@ -58,8 +56,14 @@
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-  margin-left: 1%;
+}
 
+@media (max-width: 768px) {
+  .newsletter {
+
+    margin-left: 10%;
+    width: 90%;
+  }
 }
 
 .textsmall {
@@ -72,7 +76,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-.textlarge{
+.textlarge {
   font-size: xx-large;
   font-family: 'Inter', sans-serif;
 }
@@ -81,6 +85,6 @@
   text-decoration: none
 }
 
-.bouton{
+.bouton {
   color: black;
 }

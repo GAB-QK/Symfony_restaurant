@@ -1,3 +1,11 @@
 <?php
 
-// create an update methods in a security controller to update the user password
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class SecurityController extends AbstractController
+{
+}
