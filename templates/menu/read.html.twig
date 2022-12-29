@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	{{menu.name}}
+	<a class="btn btn-dark" href="/boisson/create/{{ menu.id  }}">ajouter une boisson
+	</a>
+	<a class="btn btn-dark" href="/dessert/create/{{ menu.id  }}">ajouter une dessert
+	</a>
+	<a class="btn btn-dark" href="/plat/create/{{ menu.id  }}">ajouter une plat
+	</a>
+	<a class="btn btn-dark" href="/entrees/create/{{ menu.id  }}">ajouter une entrees
+	</a>
+	{% for drink in drinks %}
+		{{drink.name}}
+		{{drink.price}}
+	{% endfor %}
+	{% for dessert in desserts %}
+		{{dessert.name}}
+		{{dessert.price}}
+	{% endfor %}
+	{% for plat in plats %}
+		{{plat.name}}
+		{{plat.price}}
+	{% endfor %}
+	{% for entree in entrees %}
+		{{entree.name}}
+		{{entree.price}}
+	{% endfor %}
+{% endblock %}

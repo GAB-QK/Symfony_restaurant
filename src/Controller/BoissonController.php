@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Boisson;
+use App\Entity\Menu;
 use App\Form\BoissonType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,12 +15,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BoissonController extends AbstractController
 {
-  #[Route('/boisson/create', name: 'boisson_create')]
-  public function create(Request $request, ManagerRegistry $doctrine): Response
+  #[Route('/boisson/create/{id}', name: 'boisson_create')]
+  public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
     $boisson = new Boisson();
     $form = $this->createForm(BoissonType::class, $boisson);
     $form->handleRequest($request);
+
+    $menuRepository = $doctrine->getRepository(Menu::class);
+    $menu = $menuRepository->find($id);
+    $boisson->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
       dump($boisson);
       $em = $doctrine->getManager();
@@ -27,8 +32,6 @@ class BoissonController extends AbstractController
       $em->flush();
       //return $this->redirectToRoute("boisson_readAll");
     }
-
-
     return $this->render('boisson/form.html.twig', [
       'form' => $form->createView()
     ]);
@@ -67,7 +70,6 @@ class BoissonController extends AbstractController
       'lists' => $boissonRepository->findAll()
     ]);
   }
-
 
   #[Route('/boisson/delete/{id}', name: 'boisson_delete')]
   public function delete(Boisson $boisson, ManagerRegistry $doctrine)
