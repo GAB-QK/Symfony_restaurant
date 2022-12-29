@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-
 	{{ form_start(form) }}
 	{{ form_row(form.name)}}
-	{{ form_row(form.price)}}
+	{{ form_row(form.image)}}
+	{{ form_row(form.date)}}
+	{{ form_row(form.tag)}}
 	<button type="submit" class="btn btn-primary">Submit</button>
 	{{ form_end(form) }}
 

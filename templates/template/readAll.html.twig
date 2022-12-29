@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	{% for plat in lists %}
+	<p>
+		{{plat.name}}</p>
+	<p>
+		{{ form_row(form.name)}}
+	</p>
+	<p>
+		{{ form_row(form.image)}}
+	</p>
+	<p>
+		{{ form_row(form.date)}}
+	</p>
+	<p>
+		{{ form_row(form.tag)}}
+	</p>
+	{% endfor %}
+
+{% endblock %}
