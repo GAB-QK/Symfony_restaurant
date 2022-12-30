@@ -90,13 +90,50 @@
 }
 
 .basic {
-  background-color: rgb(234, 139, 15);   
+  background-color: rgb(234, 139, 15);
 }
 
 .premium {
-  background-color: rgb(121, 111, 98);   
+  background-color: rgb(121, 111, 98);
 }
 
 .gold {
-  background-color: rgb(255, 215, 0);   
+  background-color: rgb(255, 215, 0);
+}
+
+.card {
+  border: 1px solid #ccc;
+  /* Add a border to the card */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow to the card */
+  width: 38rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-img-right {
+  width: 25%;
+  /* Set the width of the image to 25% of the card width */
+  border-radius: 0;
+  /* Remove the border radius from the image */
+}
+
+.card-title {
+  font-size: 1.5em;
+  /* Increase the font size of the title */
+  color: rgb(126, 31, 31);
+  /* Change the text color to dark grey */
+  text-align: center;
+  /* Center the text */
+}
+
+.card-text {
+  font-size: 1.2em;
+  /* Increase the font size of the text */
+  color: #666;
+  /* Change the text color to medium grey */
+  line-height: 1.5;
+  /* Increase the line height to make the text more readable */
 }
