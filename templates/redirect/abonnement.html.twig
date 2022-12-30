@@ -6,46 +6,26 @@
 {% block body %}
 	<h1>Abonnement</h1>
 	<hr>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 mb-4">
-				<div class="card h-100 ">
-					<div class="card-body basic">
-						<h4 class="card-title">Basic Subscription</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary">Sign Up</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 mb-4 ">
-				<div class="card h-100 ">
-					<div class="card-body premium">
-						<h4 class="card-title">Premium Subscription</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary">Sign Up</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 mb-4 ">
-				<div class="card h-100  ">
-					<div class="card-body gold">
-						<h4 class="card-title ">Platinum Subscription</h4>
-						<p class="card-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-					</div>
-					<div class="card-footer ">
-						<a href="#" class="btn btn-primary">Sign Up</a>
-					</div>
-				</div>
-			</div>
+	<div class="card-container d-flex">
+		<div class="cards basic" >
+			<h2 class="card-titles" style="color: black;">Card 1</h2>
+			<p class="card-descriptions">This is the description for card 1</p>
+			<p class="card-prices">$9.99/month</p>
+			<button class="btns btn-oranges">Subscribe</button>
+		</div>
+		<div class="cards premium" >
+			<h2 class="card-titles" style="color: black;">Card 2</h2>
+			<p class="card-descriptions">This is the description for card 2</p>
+			<p class="card-prices">$19.99/month</p>
+			<button class="btns btn-oranges">Subscribe</button>
+		</div>
+		<div class="cards gold">
+			<h2 class="card-titles" style="color: white;">Card 3</h2>
+			<p class="card-descriptions " style="color: white;">This is the description for card 3</p>
+			<p class="card-prices" style="color: white;">$29.99/month</p>
+			<button class="btns btn-oranges">Subscribe</button>
 		</div>
 	</div>
-    <br>
-    <hr>
-    <br>
-    
 
-{% endblock %}
+
+</div></div><br><hr><br>{% endblock %}
