@@ -15,11 +15,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlatController extends AbstractController
 {
   #[Route('/plat/create', name: 'plat_create')]
-  public function create(Request $request, ManagerRegistry $doctrine): Response
+  public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
     $plat = new Plat();
     $form = $this->createForm(PlatType::class, $plat);
     $form->handleRequest($request);
+
+    $menuRepository = $doctrine->getRepository(Menu::class);
+    $menu = $menuRepository->find($id);
+    $plat->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
       dump($plat);
       $em = $doctrine->getManager();
