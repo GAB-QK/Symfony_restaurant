@@ -13,4 +13,22 @@ class NavController extends AbstractController
     {
         return $this->render('/redirect/templates.html.twig');
     }
+
+    #[Route('/projet', name: 'projet')]
+    public function projet(): Response
+    {
+        return $this->render('/redirect/projet.html.twig');
+    }
+
+    #[Route('/abonnement', name: 'abonnement')]
+    public function abonnement(): Response
+    {
+        return $this->render('/redirect/abonnement.html.twig');
+    }
+
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        return $this->render('/redirect/contact.html.twig');
+    }
 }

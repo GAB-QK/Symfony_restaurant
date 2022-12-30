@@ -88,3 +88,15 @@
 .bouton {
   color: black;
 }
+
+.basic {
+  background-color: rgb(234, 139, 15);   
+}
+
+.premium {
+  background-color: rgb(121, 111, 98);   
+}
+
+.gold {
+  background-color: rgb(255, 215, 0);   
+}
