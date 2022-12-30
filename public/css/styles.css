@@ -123,7 +123,7 @@
 .card-title {
   font-size: 1.5em;
   /* Increase the font size of the title */
-  color: rgb(126, 31, 31);
+  color: rgb(0, 0, 0);
   /* Change the text color to dark grey */
   text-align: center;
   /* Center the text */
@@ -132,7 +132,7 @@
 .card-text {
   font-size: 1.2em;
   /* Increase the font size of the text */
-  color: #666;
+  color: rgb(24, 24, 24);
   /* Change the text color to medium grey */
   line-height: 1.5;
   /* Increase the line height to make the text more readable */
