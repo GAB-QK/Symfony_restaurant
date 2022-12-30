@@ -14,12 +14,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EntreesController extends AbstractController
 {
-  #[Route('/entrees/create', name: 'entrees_create')]
-  public function create(Request $request, ManagerRegistry $doctrine): Response
+  #[Route('/entrees/create/{id}', name: 'entrees_create')]
+  public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
     $entrees = new Entrees();
     $form = $this->createForm(EntreesType::class, $entrees);
     $form->handleRequest($request);
+
+    $menuRepository = $doctrine->getRepository(Menu::class);
+    $menu = $menuRepository->find($id);
+    $entrees->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
       dump($entrees);
       $em = $doctrine->getManager();
@@ -27,8 +31,6 @@ class EntreesController extends AbstractController
       $em->flush();
       // return $this->redirectToRoute("entrees_readAll");
     }
-
-
     return $this->render('entrees/form.html.twig', [
       'form' => $form->createView()
     ]);
@@ -52,8 +54,6 @@ class EntreesController extends AbstractController
       $em = $doctrine->getManager();
       $em->flush();
     }
-
-
     return $this->render('entrees/form.html.twig', [
       'form' => $form->createView()
     ]);

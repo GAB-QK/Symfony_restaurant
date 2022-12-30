@@ -14,12 +14,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DessertController extends AbstractController
 {
-  #[Route('/dessert/create', name: 'dessert_create')]
-  public function create(Request $request, ManagerRegistry $doctrine): Response
+  #[Route('/dessert/create{id}', name: 'dessert_create')]
+  public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
     $dessert = new Dessert();
     $form = $this->createForm(DessertType::class, $dessert);
     $form->handleRequest($request);
+
+    $menuRepository = $doctrine->getRepository(Menu::class);
+    $menu = $menuRepository->find($id);
+    $dessert->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
       dump($dessert);
       $em = $doctrine->getManager();

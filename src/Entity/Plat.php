@@ -11,7 +11,7 @@ class Plat
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -19,21 +19,13 @@ class Plat
     #[ORM\Column]
     private ?float $price = null;
 
+    #[ORM\ManyToOne(inversedBy: 'plat')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Menu $menu = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
     }
 
     public function getPrice(): ?float
@@ -64,6 +56,18 @@ class Plat
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getMenu(): ?Menu
+    {
+        return $this->menu;
+    }
+
+    public function setMenu(?Menu $menu): self
+    {
+        $this->menu = $menu;
 
         return $this;
     }
