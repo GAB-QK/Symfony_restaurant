@@ -40,7 +40,7 @@ class MenuController extends AbstractController
       $em->flush();
       //return $this->redirectToRoute("menu_readAll");
     }
-    return $this->render('menu/read.html.twig', [
+    return $this->render('menu/form.html.twig', [
       'form' => $form->createView()
     ]);
   }

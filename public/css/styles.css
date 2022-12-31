@@ -102,6 +102,7 @@
 }
 
 .card {
+  margin-top: 150px;
   border: 1px solid #ccc;
   /* Add a border to the card */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -137,14 +138,17 @@
   line-height: 1.5;
   /* Increase the line height to make the text more readable */
 }
-.card-container{
+
+.card-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 1200px;
 }
+
 .cards {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,4 +184,18 @@
 .btn-oranges {
   background-color: orange;
   color: white;
+}
+
+.footer-space {
+  margin-top: 300px;
+}
+
+/* Style the form container */
+.login-container {
+  margin: 0 auto;
+  box-shadow: inset;
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #f1f1f1;
+  width: 500px;
 }

@@ -14,10 +14,10 @@ class NavController extends AbstractController
         return $this->render('/redirect/templates.html.twig');
     }
 
-    #[Route('/projet', name: 'projet')]
+    #[Route('/menu', name: 'menu')]
     public function projet(): Response
     {
-        return $this->render('/redirect/projet.html.twig');
+        return $this->render('/redirect/menu.html.twig');
     }
 
     #[Route('/abonnement', name: 'abonnement')]
