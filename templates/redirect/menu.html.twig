@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu-TempCode
+{% endblock %}
+
+{% block body %}
+	<br>
+	<div class="container">
+		<div class="card">
+			<div class="card-header">
+				<h2>Create a New Menu</h2>
+			</div>
+			<div class="card-body">
+				<div class="alert alert-primary" role="alert">
+					Do you want to create a new menu?
+					<a href="menu/create">
+						<button type="button" class="btn btn-primary mr-2" >Create</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

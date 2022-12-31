@@ -23,7 +23,9 @@
 			<nav class="navbar navbar-expand-lg bg-light">
 				<div class="container-fluid">
 					<div class="navbar-brand">
-						<img class="logo" src="{{asset('img/TempCodeLogo.png')}}" alt="logo">
+						<a href="/">
+							<img class="logo" src="{{asset('img/TempCodeLogo.png')}}" alt="logo">
+						</a>
 					</div>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -31,16 +33,19 @@
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="/templates">Templates</a>
+								<a class="nav-link active" aria-current="page" href="templates">Templates</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/abonnement">Abonemment</a>
+								<a class="nav-link" href="abonnement">Abonemment</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="projet">Projet</a>
+								<a class="nav-link" href="menu">Menu</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link " href="contact">Contact</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link " href="login">Login</a>
 							</li>
 						</ul>
 					</div>
@@ -54,7 +59,7 @@
 	{% block body %}{% endblock %}
 </body>
 {% block footer %}
-	<div class="d-flex flex-column">
+	<div class="d-flex flex-column footer-space">
 		<div class="footerblack d-flex flex-column">TRAVAILLONS ENSEMBLE ET FAISONS GRANDIR VOTRE PROJET
 			<div class="btn btn-light w-25">
 				SOUMETRE UN PROJET
