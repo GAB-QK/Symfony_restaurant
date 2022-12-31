@@ -22,7 +22,7 @@ class MenuController extends AbstractController
     $plats = $menu->getPlat();
 
     return $this->render("/menu/read.html.twig", [
-      "drinks" => $drinks, "desserts" => $desserts, "entrees" => $entrees, "plats" => $plats,'menu' => $menu
+      "drinks" => $drinks, "desserts" => $desserts, "entrees" => $entrees, "plats" => $plats, 'menu' => $menu
     ]);
   }
 
@@ -40,7 +40,7 @@ class MenuController extends AbstractController
       $em->flush();
       //return $this->redirectToRoute("menu_readAll");
     }
-    return $this->render('menu/read.html.twig', [
+    return $this->render('menu/form.html.twig', [
       'form' => $form->createView()
     ]);
   }
