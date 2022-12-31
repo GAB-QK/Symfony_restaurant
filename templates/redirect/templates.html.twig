@@ -4,14 +4,19 @@
 {% endblock %}
 
 {% block body %}
-	<h1 style="margin-left : 10px">Select a template:</h1>
-
-	
-	{# <div class="template-options">
-							{% for template in templates %}
-								<a href="/{{ template.filename }}">
-									<img src="/{{ template.image }}" alt="{{ template.name }}">
-								</a>
-							{% endfor %}
-						</div> #}
+	<div class="container">
+		<div class="card">
+			<div class="card-header">
+				<h2>Create a New Template</h2>
+			</div>
+			<div class="card-body">
+				<div class="alert alert-primary" role="alert">
+					Do you want to create a new template?
+					<a href="template/create">
+						<button type="button" class="btn btn-primary mr-2">Create</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
