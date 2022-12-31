@@ -26,8 +26,7 @@ class Template
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\ManyToOne(inversedBy: 'templates')]
-    private ?Utilisateurs $Utilisateurs = null;
+
 
     #[ORM\ManyToOne(inversedBy: 'templates')]
     private ?Menu $menu = null;
@@ -85,17 +84,7 @@ class Template
         return $this;
     }
 
-    public function getUtilisateurs(): ?Utilisateurs
-    {
-        return $this->Utilisateurs;
-    }
 
-    public function setUtilisateurs(?Utilisateurs $Utilisateurs): self
-    {
-        $this->Utilisateurs = $Utilisateurs;
-
-        return $this;
-    }
 
     public function getMenu(): ?Menu
     {
