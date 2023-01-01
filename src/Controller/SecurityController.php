@@ -20,7 +20,7 @@ class SecurityController extends AbstractController
     ]);
   }
 
-  #[Route("/disconect", name: "disconnect")]
+  #[Route("/logout", name: "logout")]
   public function logout()
   {
     return $this->render('/redirect/index.html.twig');
