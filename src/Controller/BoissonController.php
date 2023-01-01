@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BoissonController extends AbstractController
 {
+
   #[Route('/boisson/create/{id}', name: 'boisson_create')]
   public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
@@ -30,7 +31,7 @@ class BoissonController extends AbstractController
       $em = $doctrine->getManager();
       $em->persist($boisson);
       $em->flush();
-      //return $this->redirectToRoute("boisson_readAll");
+      return $this->redirectToRoute("boisson_readAll");
     }
     return $this->render('boisson/form.html.twig', [
       'form' => $form->createView()
@@ -57,7 +58,7 @@ class BoissonController extends AbstractController
     }
 
 
-    return $this->render('boisson/boisson.html.twig', [
+    return $this->render('boisson/form.html.twig', [
       'form' => $form->createView()
     ]);
   }
