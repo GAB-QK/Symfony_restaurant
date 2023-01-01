@@ -67,6 +67,7 @@ class TemplateController extends AbstractController
       'lists' => $TemplateRepository->findAll()
     ]);
   }
+  
   #[Route('/template/delete/{id}', name: 'template_delete')]
   public function delete(Template $template, ManagerRegistry $doctrine)
   {

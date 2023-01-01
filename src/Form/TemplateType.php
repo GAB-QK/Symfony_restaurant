@@ -13,10 +13,10 @@ class TemplateType extends AbstractType
     public function buildForm(FormFormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'Nom de la Template '])
-            ->add('image', TextType::class, ['label' => 'image de la Template '])
-            ->add('tag', TextType::class, ['label' => 'tag de la Template '])
-            ->add('date', TextType::class, ['label' => 'date de la Template ']);
+            ->add('name', TextType::class, ['label' => ' '])
+            ->add('image', TextType::class, ['label' => ' '])
+            ->add('tag', TextType::class, ['label' => ' '])
+            ->add('date', TextType::class, ['label' => ' ']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
