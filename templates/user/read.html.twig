@@ -1,9 +1,17 @@
 {% extends "base.html.twig" %}
 {% block body %}
-	<p>
-		{{plat.name}}</p>
+		<p>
+		{{ form_row(form.prenom)}}
+	</p>
+		<p>
+		{{ form_row(form.nom)}}
+	</p>
+	
 	<p>
 		{{ form_row(form.username)}}
+	</p>
+		<p>
+		{{ form_row(form.email)}}
 	</p>
 	<p>
 		{{ form_row(form.password)}}
