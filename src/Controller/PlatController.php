@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Plat;
+use App\Entity\Menu;
 use App\Form\PlatType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PlatController extends AbstractController
 {
-  #[Route('/plat/create', name: 'plat_create')]
+  #[Route('/plat/create/{id}', name: 'plat_create')]
   public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
     $plat = new Plat();
