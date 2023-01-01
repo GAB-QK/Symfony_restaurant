@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Dessert;
+use App\Entity\Menu;
 use App\Form\DessertType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DessertController extends AbstractController
 {
-  #[Route('/dessert/create{id}', name: 'dessert_create')]
+  #[Route('/dessert/create/{id}', name: 'dessert_create')]
   public function create(Request $request, ManagerRegistry $doctrine, int $id): Response
   {
     $dessert = new Dessert();
