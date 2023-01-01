@@ -46,7 +46,7 @@
 
 .newsletter {
   margin-top: 50px;
-  margin-left: 30%;
+  margin-inline: auto;
   width: 750px;
   height: 200px;
   text-align: center;
@@ -198,4 +198,9 @@
   padding: 16px;
   background-color: #f1f1f1;
   width: 500px;
+}
+
+.image{
+  width:auto;
+  object-fit: cover;
 }
