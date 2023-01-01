@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Entrees;
+use App\Entity\Menu;
 use App\Form\EntreesType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
