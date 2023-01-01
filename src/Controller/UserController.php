@@ -8,16 +8,22 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 
 
 class UserController extends AbstractController
 {
+  private $passwordHasher;
+  public function __construct(UserPasswordHasherInterface $passwordHasher)
+  {
+    $this->passwordHasher = $passwordHasher;
+  }
   #[Route('/user/create', name: 'User_create')]
   public function create(Request $request, ManagerRegistry $doctrine): Response
   {
-    $user = new User();
+    $user = new User($this->passwordHasher);
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
@@ -59,7 +65,8 @@ class UserController extends AbstractController
     ]);
   }
 
-  #[Route('/user/readAll', name: 'user_readAll')] // accolades pour parametres
+  #[Route('/user/readAll', name: 'user_readAll')]
+  // accolades pour parametres
   public function readAll(ManagerRegistry $doctrine)
   {
     $UserRepository = $doctrine->getRepository(User::class);

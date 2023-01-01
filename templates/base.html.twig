@@ -50,47 +50,50 @@
 				</div>
 			</nav>
 			<HR>
-			
+
+
 		{% endblock %}
 	</head>
-</html>
-<body>
-	{% block body %}
-	{% endblock %}
-</body>
-{% block footer %}
-	<div class="d-flex flex-column footer-space">
-		<div class="footerblack d-flex flex-column">TRAVAILLONS ENSEMBLE ET FAISONS GRANDIR VOTRE PROJET
-			<div class="btn btn-light w-25">
-				SOUMETRE UN PROJET
+	<body>
+		{% block body %}{% endblock %}
+	</body>
+
+	{% block footer %}
+		<div class="d-flex flex-column footer-space">
+			<div class="footerblack d-flex flex-column">TRAVAILLONS ENSEMBLE ET FAISONS GRANDIR VOTRE PROJET
+				<div class="btn btn-light w-25">
+					SOUMETRE UN PROJET
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="newsletter">
-		<div>
-			Nous suivre :
+		<div class="newsletter">
+			<div>
+				Nous suivre :
+			</div>
+			<div>
+				<input type="text" placeholder="coucou@mail.com">
+				<button class="btn btn-outline-dark">envoyé</button>
+			</div>
 		</div>
-		<div>
-			<input type="text" placeholder="coucou@mail.com">
-			<button class="btn btn-outline-dark">envoyé</button>
-		</div>
-	</div>
 
-	<HR class="mt-5">
-	<div class="d-flex justify-content-between ml-5 mr-5 mt-5 textmedium display-4">
-		<div>
-			<div>Linkedin</div>
-			<div>Instagram</div>
+		<HR class="mt-5">
+		<div class="d-flex justify-content-between ml-5 mr-5 mt-5 textmedium display-4">
+			<div>
+				<div>Linkedin</div>
+				<div>Instagram</div>
+			</div>
+			<div>
+				<div>TempCode</div>
+				<div>Privacy</div>
+			</div>
 		</div>
-		<div>
-			<div>TempCode</div>
-			<div>Privacy</div>
-		</div>
+
 	{% endblock %}
 
 	{% block javascripts %}
 		{{ encore_entry_script_tags('app') }}
 	{% endblock %}
+
 
 </html>
