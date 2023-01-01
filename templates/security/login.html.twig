@@ -13,8 +13,11 @@
 			<label for="password">Mot De Passe</label>
 			<input type="password" id="password" name="_password" class="form-control" required/>
 			<button type="submit" class="btn btn-primary mt-3">Connexion</button>
-			<button type="submit" class="btn btn-grey mt-3">crée un compte</button>
 		</form>
+		<form action="{{ path('User_create') }}" method="post">
+			<button class="btn btn-grey mt-3" >crée un compte</button>
+		</form>
+		
 	</div>
 
 {% endblock %}

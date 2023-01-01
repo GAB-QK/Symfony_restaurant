@@ -14,9 +14,20 @@
 				<h3>Boissons</h3>
 				<ul class="list-group">
 					{% for drink in drinks %}
-						<li class="list-group-item">{{drink.name}}
-							-
-							{{drink.price}}</li>
+						<li class="list-group-item">
+							<div class="d-flex justify-content-between">
+								<div>
+									{{drink.name}}
+									-
+									{{drink.price}}
+									€
+								</div>
+								<div>
+									<a href="/boisson/update/{{drink.id}}" class="btn btn-warning">modifier</a>
+									<a href="/boisson/delete/{{drink.id}}" class="btn btn-danger">supprimer</a>
+								</div>
+							</div>
+						</li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -24,9 +35,21 @@
 				<h3>Desserts</h3>
 				<ul class="list-group">
 					{% for dessert in desserts %}
-						<li class="list-group-item">{{dessert.name}}
-							-
-							{{dessert.price}}</li>
+						<li class="list-group-item">
+							<div class="d-flex justify-content-between">
+								<div>
+									{{dessert.name}}
+									-
+									{{dessert.price}}
+									€
+								</div>
+								<div>
+									<a href="/dessert/update/{{dessert.id}}" class="btn btn-warning">modifier</a>
+									<a href="/dessert/delete/{{dessert.id}}" class="btn btn-danger">supprimer</a>
+								</div>
+							</div>
+						</li>
+
 					{% endfor %}
 				</ul>
 			</div>
@@ -36,9 +59,20 @@
 				<h3>Plats</h3>
 				<ul class="list-group">
 					{% for plat in plats %}
-						<li class="list-group-item">{{plat.name}}
-							-
-							{{plat.price}}</li>
+						<li class="list-group-item">
+							<div class="d-flex justify-content-between">
+								<div>
+									{{plat.name}}
+									-
+									{{plat.price}}
+									€
+								</div>
+								<div>
+									<a href="/plat/update/{{plat.id}}" class="btn btn-warning">modifier</a>
+									<a href="/plat/delete/{{plat.id}}" class="btn btn-danger">supprimer</a>
+								</div>
+							</div>
+						</li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -46,9 +80,21 @@
 				<h3>Entrées</h3>
 				<ul class="list-group">
 					{% for entree in entrees %}
-						<li class="list-group-item">{{entree.name}}
-							-
-							{{entree.price}}</li>
+						<li class="list-group-item">
+							<div class="d-flex justify-content-between">
+								<div>
+									{{entree.name}}
+									-
+									{{entree.price}}
+									€
+								</div>
+								<div>
+									<a href="/entrees/update/{{entree.id}}" class="btn btn-warning">modifier</a>
+									<a href="/entrees/delete/{{entree.id}}" class="btn btn-danger">supprimer</a>
+								</div>
+							</div>
+						</li>
+
 					{% endfor %}
 				</ul>
 			</div>
