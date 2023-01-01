@@ -2,7 +2,7 @@
 {% block body %}
 	<div class="container mt-5">
 		<h1 class="text-center">Add a new Drink to the menu</h1>
-		<form method="post" action="{{ path('menu_create') }}">
+		<form method="post">
 			{{ form_start(form) }}
 			<div class="form-group">
 				{{ form_row(form.name)}}
