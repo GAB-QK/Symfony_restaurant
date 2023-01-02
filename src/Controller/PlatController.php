@@ -26,7 +26,6 @@ class PlatController extends AbstractController
     $menu = $menuRepository->find($id);
     $plat->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($plat);
       $em = $doctrine->getManager();
       $em->persist($plat);
       $em->flush();
@@ -53,7 +52,6 @@ class PlatController extends AbstractController
     $form = $this->createForm(PlatType::class, $plat);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($plat);
       $em = $doctrine->getManager();
       $em->flush();
     }

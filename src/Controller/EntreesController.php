@@ -26,7 +26,6 @@ class EntreesController extends AbstractController
     $menu = $menuRepository->find($id);
     $entrees->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($entrees);
       $em = $doctrine->getManager();
       $em->persist($entrees);
       $em->flush();
@@ -51,7 +50,6 @@ class EntreesController extends AbstractController
     $form = $this->createForm(EntreesType::class, $entrees);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($entrees);
       $em = $doctrine->getManager();
       $em->flush();
     }

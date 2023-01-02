@@ -19,4 +19,20 @@
 			</div>
 		</div>
 	</div>
+
+	{% for template in templates %}
+		<li class="list-group-item">
+			<div class="d-flex justify-content-between">
+				<div>
+					{{template.name}}
+					-
+					{{template.image}}
+					-
+					{{template.tag}}
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+
+
 {% endblock %}

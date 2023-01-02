@@ -27,7 +27,6 @@ class UserController extends AbstractController
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($user);
       $em = $doctrine->getManager();
       $em->persist($user);
       $em->flush();
@@ -43,8 +42,11 @@ class UserController extends AbstractController
   #[Route('/user/read/{id}', name: 'user_read')]
   public function read(User $user)
   {
+    $username = $user->getUserName();
+    $mail = $user->getEmail();
+
     return $this->render('user/read.html.twig', [
-      'user' => $user
+      "mail" => $mail,"username" => $username, 'user' => $user
     ]);
   }
 
@@ -54,7 +56,6 @@ class UserController extends AbstractController
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($user);
       $em = $doctrine->getManager();
       $em->flush();
     }

@@ -27,7 +27,6 @@ class BoissonController extends AbstractController
     $menu = $menuRepository->find($id);
     $boisson->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($boisson);
       $em = $doctrine->getManager();
       $em->persist($boisson);
       $em->flush();
@@ -52,7 +51,6 @@ class BoissonController extends AbstractController
     $form = $this->createForm(BoissonType::class, $boisson);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($boisson);
       $em = $doctrine->getManager();
       $em->flush();
     }

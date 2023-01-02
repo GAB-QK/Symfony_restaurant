@@ -21,9 +21,9 @@ class TemplateController extends AbstractController
     $form = $this->createForm(TemplateType::class, $template);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($template);
-      
+
       $em = $doctrine->getManager();
+      $template->setDate(new \DateTime());
       $em->persist($template);
       $em->flush();
       //return $this->redirectToRoute("template_readAll");
@@ -38,8 +38,13 @@ class TemplateController extends AbstractController
   #[Route('/template/read/{id}', name: 'template_read')]
   public function read(Template $template)
   {
-    return $this->render('template/read.html.twig', [
-      'template' => $template
+
+    $Name = $template->getName();
+    $Image = $template->getImage();
+    $Tag = $template->getTag();
+
+    return $this->render('redirect/templates.html.twig', [
+      "Name" => $Name, "Image" => $Image, "Tag" => $Tag, 'template' => $template
     ]);
   }
 
@@ -49,7 +54,6 @@ class TemplateController extends AbstractController
     $form = $this->createForm(TemplateType::class, $template);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($template);
       $em = $doctrine->getManager();
       $em->flush();
     }
@@ -68,7 +72,7 @@ class TemplateController extends AbstractController
       'lists' => $TemplateRepository->findAll()
     ]);
   }
-  
+
   #[Route('/template/delete/{id}', name: 'template_delete')]
   public function delete(Template $template, ManagerRegistry $doctrine)
   {
