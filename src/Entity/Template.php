@@ -17,7 +17,7 @@ class Template
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: "text")]
     private ?string $image = null;
 
     #[ORM\Column(length: 255)]

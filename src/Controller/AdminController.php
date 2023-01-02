@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Controller\User;
+use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
 
 
@@ -26,7 +26,7 @@ class AdminController extends AbstractController
     $this->denyAccessUnlessGranted("ROLE_ADMIN");
     $userRepository = $doctrine->getRepository(User::class);
     $users =$userRepository->findAll();
-    return $this->render('admin/users.html.twig', [
+    return $this->render('admin/user.html.twig', [
         "users" => $users
     ]);
 }

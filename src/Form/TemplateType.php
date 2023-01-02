@@ -19,7 +19,7 @@ class TemplateType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => ' '])
-            ->add('image', FileType::class, ['label' => ' '])
+            ->add('image', FileType::class, ['label' => ' ', 'mapped' => false, 'required' => true])
             ->add('tag', TextType::class, ['label' => ' ']);
     }
 
