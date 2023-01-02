@@ -22,6 +22,7 @@ class TemplateController extends AbstractController
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
       dump($template);
+      
       $em = $doctrine->getManager();
       $em->persist($template);
       $em->flush();
