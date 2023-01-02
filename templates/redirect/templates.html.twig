@@ -34,5 +34,8 @@
 		</li>
 	{% endfor %}
 
+	$searchedValue = $request->query->get('searchedValue');
+	$templates = $repository->findBy(['name' => $searchedValue]);
+
 
 {% endblock %}
