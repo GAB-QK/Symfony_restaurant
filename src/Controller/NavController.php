@@ -4,19 +4,32 @@ namespace App\Controller;
 
 use App\Entity\Menu;
 use App\Entity\Template;
+use App\Repository\TemplateRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class NavController extends AbstractController
 {
     #[Route('/templates', name: 'templates')]
-    public function templates(ManagerRegistry $doctrine): Response
+    public function templates(ManagerRegistry $doctrine, Request $request, TemplateRepository $repository): Response
     {
-        $templateRepository = $doctrine->getRepository(Template::class);
+        $templates = $repository->findAll();
+        $searchedValue = $request->query->get('searchedValue');
+        if ($searchedValue === NULL) {
+            // si recherche vide
+        } else {
+            $nametemplates = $repository->findBy(['name' => $searchedValue]);
+            $tagtemplates = $repository->findBy(['tag' => $searchedValue]);
+
+            $templates = array_merge($nametemplates, $tagtemplates);
+            
+        }
         return $this->render('redirect/templates.html.twig', [
-            'templates' => $templateRepository->findAll()
+            'templates' => $templates,
+            'searchedValue' => $searchedValue,
         ]);
     }
 
