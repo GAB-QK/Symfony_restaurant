@@ -26,7 +26,6 @@ class DessertController extends AbstractController
     $menu = $menuRepository->find($id);
     $dessert->setMenu($menu);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($dessert);
       $em = $doctrine->getManager();
       $em->persist($dessert);
       $em->flush();
@@ -53,7 +52,6 @@ class DessertController extends AbstractController
     $form = $this->createForm(DessertType::class, $dessert);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($dessert);
       $em = $doctrine->getManager();
       $em->flush();
     }

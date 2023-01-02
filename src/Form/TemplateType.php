@@ -15,8 +15,7 @@ class TemplateType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => ' '])
             ->add('image', TextType::class, ['label' => ' '])
-            ->add('tag', TextType::class, ['label' => ' '])
-            ->add('date', TextType::class, ['label' => ' ']);
+            ->add('tag', TextType::class, ['label' => ' ']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
