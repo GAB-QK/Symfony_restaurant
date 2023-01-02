@@ -21,6 +21,7 @@ class TemplateController extends AbstractController
     $form = $this->createForm(TemplateType::class, $template);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
+
       $em = $doctrine->getManager();
       $template->setDate(new \DateTime());
       $em->persist($template);
