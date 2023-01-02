@@ -200,7 +200,6 @@
   width: 500px;
 }
 
-.image{
-  width:auto;
-  object-fit: cover;
+.m-auto{
+  margin: auto;
 }

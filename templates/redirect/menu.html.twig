@@ -14,26 +14,35 @@
 				<div class="alert alert-primary" role="alert">
 					Do you want to create a new menu?
 					<a href="menu/create">
-						<button type="button" class="btn btn-primary mr-2" >Create</button>
+						<button type="button" class="btn btn-primary mr-2">Create</button>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	{% for menu in menus %}
-		<li class="list-group-item">
-			<div class="d-flex justify-content-between">
-				<div>
-					<h3>{{ menu.name }}</h3>
-					<a>{{ menu.id }}</a>
-					{% for drink in menu.drink %}
-						<h1>{{ drink.name }}</h1>
-						
-					{% endfor %}
-				</div>
-			</div>
-		</li>
-	{% endfor %}
+	<div class="row mt-3 ">
+		<div class="col-md-6 "  style="margin : auto">
+			<h3>Menus</h3>
+			<ul class="list-group">
+				{% for menu in menus %}
+					<li class="list-group-item">
+						<div class="d-flex justify-content-between">
+							<div>
+								<h3>vos menu : {{ menu.name }}</h3>
+								{% for drink in menu.drink %}
 
-{% endblock %}
+								<h1>{{ drink.name }}</h1>
+								{% endfor %}
+							</div>
+							<div>
+								<a href="/menu/read/{{menu.id}}" class="btn btn-warning">modify</a>
+							</div>
+						</div>
+					</li>
+					<hr>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	{% endblock %}
