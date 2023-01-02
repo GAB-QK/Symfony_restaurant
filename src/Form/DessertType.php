@@ -14,8 +14,8 @@ class DessertType extends AbstractType
     public function buildForm(FormFormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TypeTextType::class, ['label' => 'Nom de la Dessert '])
-            ->add('price', NumberType::class, ['label' => 'Prix']);
+            ->add('name', TypeTextType::class, ['label' => ' '])
+            ->add('price', NumberType::class, ['label' => ' ']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

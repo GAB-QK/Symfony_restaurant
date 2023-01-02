@@ -14,8 +14,8 @@ class PlatType extends AbstractType
     public function buildForm(FormFormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'Nom de la Plat '])
-            ->add('price', NumberType::class, ['label' => 'Prix']);
+            ->add('name', TextType::class, ['label' => ' '])
+            ->add('price', NumberType::class, ['label' => ' ']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
