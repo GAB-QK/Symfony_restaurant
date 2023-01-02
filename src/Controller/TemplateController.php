@@ -9,19 +9,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
-
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class TemplateController extends AbstractController
 {
   #[Route('/template/create', name: 'template_create')]
-  public function create(Request $request, ManagerRegistry $doctrine): Response
+  public function create(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger): Response
   {
     $template = new Template();
     $form = $this->createForm(TemplateType::class, $template);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-
+      $imageFile = $form->get('image')->getData();
+      if ($imageFile) {
+        $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $filename = $slugger->slug($originalFilename);
+        $newFilename = $filename . '-' . uniqid() . '.' . $imageFile->guessExtension();
+        $imageFile->move(
+          "../images",
+          $newFilename
+        );
+        $template->setImage($newFilename);
+      }
       $em = $doctrine->getManager();
       $template->setDate(new \DateTime());
       $em->persist($template);
@@ -33,6 +42,7 @@ class TemplateController extends AbstractController
       'form' => $form->createView()
     ]);
   }
+
 
   #[Route('/template/read/{id}', name: 'template_read')]
   public function read(Template $template)
