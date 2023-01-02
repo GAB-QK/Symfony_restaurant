@@ -20,4 +20,20 @@
 			</div>
 		</div>
 	</div>
+
+	{% for menu in menus %}
+		<li class="list-group-item">
+			<div class="d-flex justify-content-between">
+				<div>
+					<h3>{{ menu.name }}</h3>
+					<a>{{ menu.id }}</a>
+					{% for drink in menu.drink %}
+						<h1>{{ drink.name }}</h1>
+						
+					{% endfor %}
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+
 {% endblock %}

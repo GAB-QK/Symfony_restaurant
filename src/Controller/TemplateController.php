@@ -28,7 +28,6 @@ class TemplateController extends AbstractController
       //return $this->redirectToRoute("template_readAll");
     }
 
-
     return $this->render('template/form.html.twig', [
       'form' => $form->createView()
     ]);
@@ -67,8 +66,8 @@ class TemplateController extends AbstractController
   public function readAll(ManagerRegistry $doctrine)
   {
     $TemplateRepository = $doctrine->getRepository(Template::class);
-    return $this->render('template/readAll.html.twig', [
-      'lists' => $TemplateRepository->findAll()
+    return $this->render('redirect/templates.html.twig', [
+      'templates' => $TemplateRepository->findAll()
     ]);
   }
 

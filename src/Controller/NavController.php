@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Menu;
+use App\Entity\Template;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,15 +12,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class NavController extends AbstractController
 {
     #[Route('/templates', name: 'templates')]
-    public function templates(): Response
+    public function templates(ManagerRegistry $doctrine): Response
     {
-        return $this->render('/redirect/templates.html.twig');
+        $templateRepository = $doctrine->getRepository(Template::class);
+        return $this->render('redirect/templates.html.twig', [
+            'templates' => $templateRepository->findAll()
+        ]);
     }
 
     #[Route('/menu', name: 'menu')]
-    public function projet(): Response
+    public function projet(ManagerRegistry $doctrine): Response
     {
-        return $this->render('/redirect/menu.html.twig');
+        $menuRepository = $doctrine->getRepository(Menu::class);
+        return $this->render('redirect/menu.html.twig', [
+            'menus' => $menuRepository->findAll()
+        ]);
     }
 
     #[Route('/abonnement', name: 'abonnement')]
