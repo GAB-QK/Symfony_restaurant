@@ -31,6 +31,9 @@ class Template
     #[ORM\ManyToOne(inversedBy: 'templates')]
     private ?Menu $menu = null;
 
+    #[ORM\ManyToOne(inversedBy: 'templates')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -94,6 +97,18 @@ class Template
     public function setMenu(?Menu $menu): self
     {
         $this->menu = $menu;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

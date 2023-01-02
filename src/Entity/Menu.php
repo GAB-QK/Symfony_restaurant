@@ -39,6 +39,9 @@ class Menu
     #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Template::class)]
     private Collection $templates;
 
+    #[ORM\ManyToOne(inversedBy: 'menus')]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->plat = new ArrayCollection();
@@ -235,6 +238,18 @@ class Menu
                 $template->setMenu(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
