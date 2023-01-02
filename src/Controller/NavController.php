@@ -16,6 +16,9 @@ class NavController extends AbstractController
     #[Route('/templates', name: 'templates')]
     public function templates(ManagerRegistry $doctrine, Request $request, TemplateRepository $repository): Response
     {
+        $sortBy = $request->query->get('sortBy');
+        $sortDirection = $request->query->get('sortDirection');
+
         $templates = $repository->findAll();
         $searchedValue = $request->query->get('searchedValue');
         if ($searchedValue === NULL) {
@@ -25,11 +28,17 @@ class NavController extends AbstractController
             $tagtemplates = $repository->findBy(['tag' => $searchedValue]);
 
             $templates = array_merge($nametemplates, $tagtemplates);
-            
         }
+
+        if ($sortBy !== NULL && $sortDirection !== NULL) {
+            $templates = $repository->findBy([], [$sortBy => $sortDirection]);
+        }
+
         return $this->render('redirect/templates.html.twig', [
             'templates' => $templates,
             'searchedValue' => $searchedValue,
+            'sortBy' => $sortBy,
+            'sortDirection' => $sortDirection,
         ]);
     }
 
