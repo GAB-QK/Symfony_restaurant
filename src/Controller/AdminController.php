@@ -31,24 +31,23 @@ class AdminController extends AbstractController
     ]);
 }
 
-#[Route('/edituser', name: 'app_edit')]
-public function editUser(User $user, Request $request)
-{
-    $form = $this->createForm(EditUserType::class, $user);
-    $form->handleRequest($request);
+#[Security("is_granted('ROLE_ADMIN')")]
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($user);
-        $entityManager->flush();
+    #[Route("/user/readAll")]
 
-        $this->addFlash('message', 'Utilisateur modifié avec succès');
-        return $this->redirectToRoute('admin_utilisateurs');
+    public function readAll(ManagerRegistry $doctrine)
+
+    {
+
+        $userRepository = $doctrine->getRepository(User::class);
+
+        return $this->render("user/readAll.html.twig", [
+
+            "users" => $userRepository->findAll()
+
+        ]);
+
+        return $this->redirectToRoute("index");
+
     }
-    
-    return $this->render('admin/edituser.html.twig', [
-        'userForm' => $form->createView(),
-    ]);
-}
-
 }

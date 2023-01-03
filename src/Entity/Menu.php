@@ -39,8 +39,8 @@ class Menu
     #[ORM\OneToMany(mappedBy: 'menu', cascade:["persist","remove"],targetEntity: Template::class)]
     private Collection $templates;
 
-    #[ORM\ManyToOne(inversedBy: 'menus')]
-    private ?User $user = null;
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'menus')]
+    private ?User $user;
 
     public function __construct()
     {

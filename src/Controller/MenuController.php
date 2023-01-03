@@ -35,6 +35,8 @@ class MenuController extends AbstractController
     $form = $this->createForm(MenuType::class, $menu);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
+
+      $menu->setUser($this->getUser());
       $em = $doctrine->getManager();
       $em->persist($menu);
       $em->flush();
