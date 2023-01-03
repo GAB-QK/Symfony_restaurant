@@ -16,10 +16,15 @@ class MenuController extends AbstractController
   #[Route("/menu/read/{id}", name: "read_menu")]
   public function read(Menu $menu)
   {
+
+   
+ 
+    
     $drinks = $menu->getDrink();
     $desserts = $menu->getDessert();
     $entrees = $menu->getEntrees();
     $plats = $menu->getPlat();
+
   
 
     return $this->render("/menu/read.html.twig", [

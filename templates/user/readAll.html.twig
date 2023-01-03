@@ -1,119 +1,107 @@
 {% extends "base.html.twig" %}
 
 
-
 {% block body %}
 
-    {% if is_granted('ROLE_ADMIN') %}
+	{% if is_granted('ROLE_ADMIN') %}
 
-        <br>
+		<br>
 
-        <style>
+		<div>
 
-            body {
+			<h1>TempCode</h1>
 
-                background-color: lightskyblue;
+			<p>List User</p>
 
-            }
-
-        </style>
-
-        <div class="jumbotron text-center bg-primary">
-
-            <h1>Utilisateurs Tocy Sport</h1>
-
-            <p>Liste de tous les Utilisateurs</p>
-
-        </div>
+		</div>
 
 
+		<div class="container">
 
-        <div class="container">
+			<div class="row">
 
-            <div class="row">
+				{% if users is not empty %}
 
-                {% if users is not empty %}
+					<table class="table">
 
-                    <table class="table">
+						<thead>
 
-                        <thead>
+							<tr>
 
-                            <tr>
+								<th scope="col">id</th>
 
-                                <th scope="col">id</th>
+								<th scope="col">name</th>
 
-                                <th scope="col">nom d'utilisateur</th>
+								<th scope="col">password</th>
 
-                                <th scope="col">Mot de passe</th>
+								<th scope="col">Option</th>
 
-                                <th scope="col">Option</th>
+								<th scope="col">Option</th>
 
-                                <th scope="col">Option</th>
+								<th scope="col">Option</th>
 
-                                <th scope="col">Option</th>
+							</tr>
 
-                            </tr>
+						</thead>
 
-                        </thead>
+						<tbody>
 
-                        <tbody>
+							{% for user in users %}
 
-                            {% for user in users %}
+								<tr>
 
-                                <tr>
+									<td>{{ user.id }}</td>
 
-                                    <td>{{ user.id }}</td>
+									<td>{{ user.username }}</td>
 
-                                    <td>{{ user.username }}</td>
+									<td>{{ user.password }}</td>
 
-                                    <td>{{ user.password }}</td>
+									<td>
 
-                                    <td>
+										<a class="btn btn-light" href="delete/{{ user.id }}">Delete</a>
 
-                                        <a class="btn btn-light" href="delete/{{ user.id }}">Delete</a>
+									</td>
 
-                                    </td>
+									<td>
 
-                                    <td>
+										<a class="btn btn-light" href="update/{{ user.id }}">Update</a>
 
-                                        <a class="btn btn-light" href="update/{{ user.id }}">Update</a>
+									</td>
 
-                                    </td>
+									<td>
 
-                                    <td>
+										<a class="btn btn-light" href="read/{{ user.id }}">Read</a>
 
-                                        <a class="btn btn-light" href="read/{{ user.id }}">Read</a>
+									</td>
 
-                                    </td>
+								</tr>
 
-                                </tr>
+							{% endfor %}
 
-                            {% endfor %}
+						</tbody>
 
-                        </tbody>
+					</table>
 
-                    </table>
+				{% else %}
 
-                {% else %}
+					<p>No article found.</p>
 
-                    <p>No article found.</p>
+				{% endif %}
 
-                {% endif %}
+			</div>
 
-            </div>
+		</div>
 
-        </div>
+	{% else %}
 
-    {% else %}
+		<h2 style="text-align:center">Vous n'êtes pas autorisé a voir le contenue de cette page</h2>
 
-        <h2 style="text-align:center">Vous n'êtes pas autorisé a voir le contenue de cette page</h2>
+		<div class="d-flex flex-wrap justify-content-around">
 
-        <div class="d-flex flex-wrap justify-content-around">
+			<a href="/" class="btn btn-light">Retour</a>
 
-            <a href="/" class="btn btn-light">Retour</a>
+		</div>
 
-        </div>
-
-    {% endif %}
+	{% endif %}
 
 {% endblock %}

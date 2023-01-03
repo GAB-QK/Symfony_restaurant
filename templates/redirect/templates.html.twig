@@ -58,31 +58,33 @@
 				<h3>Templates</h3>
 				<ul class="list-group">
 					{% for template in templates %}
-						<li class="list-group-item">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h5>
-										Nom de la templates :</h5>
-									{{template.name}}
-								</div>
-								<div>
-									<h5>Image :</h5>
-									<img src="{{template.image}}" alt="image templates">
+						{% if app.user == menu.user %}
+							<li class="list-group-item">
+								<div class="d-flex justify-content-between">
+									<div>
+										<h5>
+											templates name :</h5>
+										{{template.name}}
+									</div>
+									<div>
+										<h5>Image :</h5>
+										<img src="{{template.image}}" alt="image templates">
 
+									</div>
+									<div class="d-flex">
+										<h5>Tag:
+										</h5>
+										{{template.tag}}
+									</div>
+									<div>
+										<a href="/template/update/{{template.id}}" class="btn btn-warning">modify</a>
+									</div>
+									<div>
+										<a href="/template/delete/{{template.id}}" class="btn btn-danger">delete</a>
+									</div>
 								</div>
-								<div class="d-flex">
-									<h5>Tag:
-									</h5>
-									{{template.tag}}
-								</div>
-								<div>
-									<a href="/template/update/{{template.id}}" class="btn btn-warning">modify</a>
-								</div>
-								<div>
-									<a href="/template/delete/{{template.id}}" class="btn btn-danger">delete</a>
-								</div>
-							</div>
-						</li>
+							</li>
+						{% endif %}
 					{% endfor %}
 				</ul>
 			</div>
