@@ -20,6 +20,7 @@ class MenuController extends AbstractController
     $desserts = $menu->getDessert();
     $entrees = $menu->getEntrees();
     $plats = $menu->getPlat();
+  
 
     return $this->render("/menu/read.html.twig", [
       "drinks" => $drinks, "desserts" => $desserts, "entrees" => $entrees, "plats" => $plats, 'menu' => $menu
@@ -43,4 +44,15 @@ class MenuController extends AbstractController
       'form' => $form->createView()
     ]);
   }
+  #[Route('/menu/delete/{id}', name: 'menu_delete')]
+  public function delete(Menu $menu, ManagerRegistry $doctrine)
+  {
+
+    $em = $doctrine->getManager();
+    $em->remove($menu);
+    $em->flush();
+    return $this->redirectToRoute("menu");
+  }
+
+
 }

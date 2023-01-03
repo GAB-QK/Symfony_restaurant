@@ -30,6 +30,8 @@ class AdminController extends AbstractController
         "users" => $users
     ]);
 }
+
+#[Route('/edituser', name: 'app_edit')]
 public function editUser(User $user, Request $request)
 {
     $form = $this->createForm(EditUserType::class, $user);

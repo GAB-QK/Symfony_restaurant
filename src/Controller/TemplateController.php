@@ -52,7 +52,7 @@ class TemplateController extends AbstractController
     $Image = $template->getImage();
     $Tag = $template->getTag();
 
-    return $this->render('redirect/templates.html.twig', [
+    return $this->render('/template/read.html.twig', [
       "Name" => $Name, "Image" => $Image, "Tag" => $Tag, 'template' => $template
     ]);
   }

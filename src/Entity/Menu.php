@@ -21,22 +21,22 @@ class Menu
     /* #[ORM\Column(length: 255)]
     private ?string $boisson = null;
  */
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Plat::class)]
+    #[ORM\OneToMany(mappedBy: 'menu', cascade:["persist","remove"], targetEntity: Plat::class)]
     private Collection $plat;
     /* 
     #[ORM\Column(length: 255)]
     private ?string $Boisson = null;
  */
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Dessert::class)]
+    #[ORM\OneToMany(mappedBy: 'menu', cascade:["persist","remove"],targetEntity: Dessert::class)]
     private Collection $dessert;
 
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Entrees::class)]
+    #[ORM\OneToMany(mappedBy: 'menu', cascade:["persist","remove"],targetEntity: Entrees::class)]
     private Collection $Entrees;
 
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Boisson::class)]
+    #[ORM\OneToMany(mappedBy: 'menu', cascade:["persist","remove"],targetEntity: Boisson::class)]
     private Collection $drink;
 
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: Template::class)]
+    #[ORM\OneToMany(mappedBy: 'menu', cascade:["persist","remove"],targetEntity: Template::class)]
     private Collection $templates;
 
     #[ORM\ManyToOne(inversedBy: 'menus')]
