@@ -1,23 +1,119 @@
-{% extends 'base.html.twig' %}
-{% block body %}
-	{% for plat in lists %}
-		<p>
-		{{ form_row(form.prenom)}}
-	</p>
-		<p>
-		{{ form_row(form.nom)}}
-	</p>
-	
-		<p>
-			{{ form_row(form.username)}}
-		</p>
-				<p>
-		{{ form_row(form.email)}}
-	</p>
-		<p>
-			{{ form_row(form.password)}}
-		</p>
+{% extends "base.html.twig" %}
 
-	{% endfor %}
+
+
+{% block body %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+        <br>
+
+        <style>
+
+            body {
+
+                background-color: lightskyblue;
+
+            }
+
+        </style>
+
+        <div class="jumbotron text-center bg-primary">
+
+            <h1>Utilisateurs Tocy Sport</h1>
+
+            <p>Liste de tous les Utilisateurs</p>
+
+        </div>
+
+
+
+        <div class="container">
+
+            <div class="row">
+
+                {% if users is not empty %}
+
+                    <table class="table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th scope="col">id</th>
+
+                                <th scope="col">nom d'utilisateur</th>
+
+                                <th scope="col">Mot de passe</th>
+
+                                <th scope="col">Option</th>
+
+                                <th scope="col">Option</th>
+
+                                <th scope="col">Option</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for user in users %}
+
+                                <tr>
+
+                                    <td>{{ user.id }}</td>
+
+                                    <td>{{ user.username }}</td>
+
+                                    <td>{{ user.password }}</td>
+
+                                    <td>
+
+                                        <a class="btn btn-light" href="delete/{{ user.id }}">Delete</a>
+
+                                    </td>
+
+                                    <td>
+
+                                        <a class="btn btn-light" href="update/{{ user.id }}">Update</a>
+
+                                    </td>
+
+                                    <td>
+
+                                        <a class="btn btn-light" href="read/{{ user.id }}">Read</a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                {% else %}
+
+                    <p>No article found.</p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <h2 style="text-align:center">Vous n'êtes pas autorisé a voir le contenue de cette page</h2>
+
+        <div class="d-flex flex-wrap justify-content-around">
+
+            <a href="/" class="btn btn-light">Retour</a>
+
+        </div>
+
+    {% endif %}
 
 {% endblock %}
