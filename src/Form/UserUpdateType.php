@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface as FormFormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class UserUpdateType extends AbstractType
 {
   public function buildForm(FormFormBuilderInterface $builder, array $options): void
   {
@@ -17,8 +17,7 @@ class UserType extends AbstractType
       ->add('prenom', TextType::class, ['label' => ' '])
       ->add('nom', TextType::class, ['label' => ' '])
       ->add('email', EmailType::class, ['label' => ' '])
-      ->add('username', TextType::class, ['label' => ' '])
-      ->add('password', TextType::class, ['label' => ' ']);
+      ->add('username', TextType::class, ['label' => ' ']);
   }
 
   public function configureOptions(OptionsResolver $resolver): void

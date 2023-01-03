@@ -32,6 +32,7 @@ class TemplateController extends AbstractController
         $template->setImage($newFilename);
       }
       $em = $doctrine->getManager();
+      $template->setUser($this->getUser());
       $template->setDate(new \DateTime());
       $em->persist($template);
       $em->flush();
@@ -63,6 +64,7 @@ class TemplateController extends AbstractController
     $form = $this->createForm(TemplateType::class, $template);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
+      $em->persist($template);
       $em = $doctrine->getManager();
       $em->flush();
     }

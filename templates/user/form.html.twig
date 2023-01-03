@@ -1,33 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 	<div class="container mt-5">
-		<h1 class="text-center">Cree un nouvel utilisateurs</h1>
+		<h1 class="text-center">Create a new user</h1>
 		<form method="post">
 			{{ form_start(form) }}
 			<div class="form-group">
 				<h3>
-					Prenom de l'utilisateurs:</h3>
+					First name:</h3>
 				{{ form_row(form.prenom)}}
 			</div>
 			<div class="form-group">
 				<h3>
-					Nom de la l'utilisateurs:</h3>
+					Last name:</h3>
 				{{ form_row(form.nom)}}
 			</div>
 			<div class="form-group">
 				<h3>
-					Email l'utilisateurs:</h3>
+					Email :</h3>
 				{{ form_row(form.email)}}
 			</div>
 			<div class="form-group">
 				<h3>
-					Username de la l'utilisateurs:</h3>
+					Username:</h3>
 				{{ form_row(form.username)}}
 			</div>
 			<div class="form-group">
-				<h3>password utilisateurs:</h3>
+				<h3>password :</h3>
 				{{ form_row(form.password)}}
 			</div>
+			<br>
 			<button type="submit" class="btn btn-primary">Submit</button>
 			{{ form_end(form) }}
 			<hr>
