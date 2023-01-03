@@ -58,7 +58,7 @@
 				<h3>Templates</h3>
 				<ul class="list-group">
 					{% for template in templates %}
-						{% if app.user == menu.user %}
+						{% if app.user == template.user %}
 							<li class="list-group-item">
 								<div class="d-flex justify-content-between">
 									<div>
