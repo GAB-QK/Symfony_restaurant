@@ -6,7 +6,6 @@
 
 {% block body %}
 	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-
 		<br>
 		<div class="container">
 			<div class="card">
@@ -26,57 +25,59 @@
 
 		<div class="row mt-3 ">
 			<div class="col-md-6 " style="margin : auto">
-				<h3>Menus</h3>
+				<h3>Menus :</h3>
 				<ul class="list-group">
 					{% for menu in menus %}
-						<li class="list-group-item">
-							<div class="d-flex justify-content-between">
-								<div>
-									<h3>Your menu :
-										{{ menu.name }}</h3>
-									<h4>Plat:
-									</h4>
-									{% for plat in menu.plat %}
-										<h5>{{ plat.name }}
-											-
-											{{plat.price}}
-											€
-										</h5>
-									{% endfor %}
-									<h4>starter:
-									</h4>
-									{% for entree in menu.entrees %}
-										<h5>{{ entree.name }}
-											-
-											{{entree.price}}
-											€</h5>
-									{% endfor %}
-									<h4>Drink:
-									</h4>
-									{% for drink in menu.drink %}
-										<h5>{{ drink.name }}
-											-
-											{{drink.price}}
-											€</h5>
-									{% endfor %}
-									<h4>Dessert:
-									</h4>
-									{% for dessert in menu.dessert %}
-										<h5>{{ dessert.name }}
-											-
-											{{dessert.price}}
-											€</h5>
-									{% endfor %}
+						{% if app.user == menu.user %}
+							<li class="list-group-item">
+								<div class="d-flex justify-content-between">
+									<div>
+										<h3>Your menu :
+											{{ menu.name }}</h3>
+										<h4>Plat:
+										</h4>
+										{% for plat in menu.plat %}
+											<h5>{{ plat.name }}
+												-
+												{{plat.price}}
+												€
+											</h5>
+										{% endfor %}
+										<h4>starter:
+										</h4>
+										{% for entree in menu.entrees %}
+											<h5>{{ entree.name }}
+												-
+												{{entree.price}}
+												€</h5>
+										{% endfor %}
+										<h4>Drink:
+										</h4>
+										{% for drink in menu.drink %}
+											<h5>{{ drink.name }}
+												-
+												{{drink.price}}
+												€</h5>
+										{% endfor %}
+										<h4>Dessert:
+										</h4>
+										{% for dessert in menu.dessert %}
+											<h5>{{ dessert.name }}
+												-
+												{{dessert.price}}
+												€</h5>
+										{% endfor %}
+									</div>
+									<div>
+										<a href="/menu/read/{{menu.id}}" class="btn btn-warning">modify</a>
+									</div>
+									<div>
+										<a href="/menu/delete/{{menu.id}}" class="btn btn-danger">delete</a>
+									</div>
 								</div>
-								<div>
-									<a href="/menu/read/{{menu.id}}" class="btn btn-warning">modify</a>
-								</div>
-								<div>
-									<a href="/menu/delete/{{menu.id}}" class="btn btn-danger">delete</a>
-								</div>
-							</div>
-						</li>
-						<hr>
+							</li>
+							<hr>
+						{% endif %}
 					{% endfor %}
 				</ul>
 			</div>
